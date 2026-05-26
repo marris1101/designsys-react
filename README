@@ -1,7 +1,7 @@
 # designsys-react
-Components designed to work in React
-
+/************
 Accordion.jsx
+*************/
 This makes use of the 3rd part library Boostrap to reudce potential issues when upgrading React in future. The page using accordions must include the Bootstrap React import:
 import Accordion from 'react-bootstrap/Accordion';
 
@@ -46,3 +46,8 @@ By default all accordions appear closed. If you would like your first accordion 
         </Accordion.Body>
   </Accordion.Item>          
 </Accordion>
+
+
+/************
+Tooltip.jsx
+*************/
