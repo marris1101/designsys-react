@@ -1,4 +1,48 @@
 # designsys-react
 Components designed to work in React
 
-This is a very small selection of components used in the React Design System that developers can make use of. These components are ready for use and AODA compatible.
+Accordion.jsx
+This makes use of the 3rd part library Boostrap to reudce potential issues when upgrading React in future. The page using accordions must include the Bootstrap React import:
+import Accordion from 'react-bootstrap/Accordion';
+
+To create an accordion group the following is an example of the HTML code to use. This example shows 2 accordions in the group, but you can include as many accordions as you like by repeating the <Accordion.Item> element and its contents. For each successive accordion the eventKey value must be increased by one. Below is an example of a group of 3 accordions showing the eventKey to use:
+
+  <Accordion.Item eventKey={0} key={0}>
+  <Accordion.Item eventKey={1} key={1}>
+  <Accordion.Item eventKey={2} key={2}>
+
+The content of the accordion is placed inside the <Accordion.Body> element. Full HTML can be used.
+
+By default all accordions appear closed. If you would like your first accordion to start open, use defaultActiveKey="0" inside the accordion element.
+
+<Accordion
+  activeKey={activeKeys}
+  onSelect={handleSelect}
+  alwaysOpen>
+  <div className="accordion-button-wrapper">
+    <Link onClick={expandAll} className={`expand ${activeKeys.length === 2 ? "On" : ""}`}>
+      Expand All
+    </Link>|
+    <Link onClick={collapseAll} className={`expand ${activeKeys.length === 0 ? "On" : ""}`}>
+      Collapse All
+    </Link>
+  </div>
+  <Accordion.Item eventKey={0} key={0}>
+    <Accordion.Header>Yoda Star Wars Quotes</Accordion.Header>
+    <Accordion.Body>
+        <dl>
+            <dt>“Wars not make one great.”</dt>
+            <dd>--Yoda (Star Wars: Episode V — The Empire Strikes Back)</dd>
+        </dl>
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey={1} key={1}>
+    <Accordion.Header>Darth Vader Star Wars Quotes</Accordion.Header>
+    <Accordion.Body>
+        <dl>
+            <dt>“The ability to destroy a planet is insignificant next to the power of the Force.”</dt>
+            <dd>--Darth Vader (Star Wars: Episode V — The Empire Strikes Back)</dd>
+        </dl>
+        </Accordion.Body>
+  </Accordion.Item>          
+</Accordion>
