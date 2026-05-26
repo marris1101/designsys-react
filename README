@@ -1,6 +1,6 @@
 # designsys-react
 /************
-Accordion.jsx
+accordion.jsx
 *************/
 This makes use of the 3rd part library Boostrap to reudce potential issues when upgrading React in future. The page using accordions must include the Bootstrap React import:
 import Accordion from 'react-bootstrap/Accordion';
@@ -49,5 +49,15 @@ By default all accordions appear closed. If you would like your first accordion 
 
 
 /************
-Tooltip.jsx
+tooltip.jsx
 *************/
+
+Include the component on the page that will be using the tooltip:
+import AccessibleTooltip  from '@/components/functions/tooltip.jsx'
+
+The tooltip can be implemented into your code as the following:
+<AccessibleTooltip mobile={false} tooltipid="tooltip2"  tooltipText="This is a tooltip!" />
+
+tooltipText is the text that you wish to appear in the tooltip. 
+tooltipid is the id used by the tooltip. If there are multiple tooltips on one page, a unique ID must be used.
+mobile can be true or false. We used tooltips almost exclusively inside table headings and we want those tables to be responsive. The tooltip mobile attribute should be sent to false inside the table header. It should be set to true when it appears inside a table cell. Since table headers are hidden in responsive view this means that the tooltip will also be hidden. So that the tooltip does not disappear completely it can be added into the table cell where it makes the most sense. It will not appear to the user unless the table is in responsive mode.
